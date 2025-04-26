@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinApp - Detalhes do Projeto | João Dev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.6.6/css/flag-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'space-grotesk': ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': {
+                            light: '#000000',
+                            dark: '#ffffff'
+                        },
+                        'secondary': {
+                            light: '#333333',
+                            dark: '#e5e5e5'
+                        },
+                        'light-bg': '#ffffff',
+                        'card-bg': '#f8f8f8',
+                        'text-dark': '#000000',
+                        'text-muted': '#666666',
+                        'dark-bg': '#000000',
+                        'dark-card': '#111111',
+                        'dark-text': '#ffffff',
+                        'dark-muted': '#a1a1a1'
+                    },
+                    transitionProperty: {
+                        'height': 'height',
+                        'transform': 'transform',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom hover effects - only for desktop */
+        @media (min-width: 768px) {
+            .hover-grow {
+                transition: transform 0.3s ease;
+            }
+            .hover-grow:hover {
+                transform: translateY(-3px);
+            }
+            
+            .hover-underline {
+                position: relative;
+            }
+            .hover-underline:after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 1px;
+                bottom: -2px;
+                left: 0;
+                background-color: #000000;
+                transition: width 0.3s ease;
+            }
+            .dark .hover-underline:after {
+                background-color: #ffffff;
+            }
+            .hover-underline:hover:after {
+                width: 100%;
+            }
+            
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            .dark .card-hover:hover {
+                box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+            }
+            
+            .social-hover {
+                transition: all 0.3s ease;
+            }
+            .social-hover:hover {
+                transform: scale(1.1);
+                background-color: #333333 !important;
+                color: white !important;
+            }
+            .dark .social-hover:hover {
+                background-color: #e5e5e5 !important;
+                color: black !important;
+            }
+            
+            .tech-badge {
+                transition: all 0.3s ease;
+            }
+            .tech-badge:hover {
+                background-color: #000000 !important;
+                border-color: #000000 !important;
+                color: white !important;
+                transform: translateY(-2px);
+            }
+            .dark .tech-badge:hover {
+                background-color: #ffffff !important;
+                border-color: #ffffff !important;
+                color: black !important;
+            }
+            
+            .gallery-image {
+                transition: all 0.5s ease;
+            }
+            .gallery-image:hover {
+                transform: scale(1.02);
+            }
+
+            /* Active section in sidebar */
+            .sidebar-item.active {
+                color: #000000 !important;
+            }
+            .dark .sidebar-item.active {
+                color: #ffffff !important;
+            }
+            .sidebar-item.active i {
+                color: #000000 !important;
+            }
+            .dark .sidebar-item.active i {
+                color: #ffffff !important;
+            }
+        }
+
+        /* Custom styles for project page */
+        .project-hero {
+            height: 60vh;
+            min-height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased bg-light-bg text-text-dark font-space-grotesk dark:bg-dark-bg dark:text-dark-text">
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar (desktop) -->
+        <div class="hidden md:flex flex-col w-64 h-screen fixed p-6 border-r border-gray-200 bg-white z-20 dark:border-gray-800 dark:bg-black">
+            <div class="flex items-center mb-10">
+                <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary-dark dark:text-black flex items-center justify-center text-white font-bold text-xl">JD</div>
+                <h1 class="ml-3 text-xl font-bold">João Dev</h1>
+            </div>
+            
+            <nav class="flex-1">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html#sobre" class="flex items-center p-3 rounded-full font-medium hover-underline text-gray-600 dark:text-gray-400 sidebar-item">
+                            <i class="fas fa-user mr-3 text-gray-500"></i>
+                            Sobre Mim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#projetos" class="flex items-center p-3 rounded-full text-black dark:text-white hover-underline sidebar-item active">
+                            <i class="fas fa-code mr-3 text-black dark:text-white"></i>
+                            Projetos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#experiencia" class="flex items-center p-3 rounded-full text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
+                            <i class="fas fa-briefcase mr-3 text-gray-500"></i>
+                            Experiência
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#educacao" class="flex items-center p-3 rounded-full text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
+                            <i class="fas fa-graduation-cap mr-3 text-gray-500"></i>
+                            Educação
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#habilidades" class="flex items-center p-3 rounded-full text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
+                            <i class="fas fa-star mr-3 text-gray-500"></i>
+                            Habilidades
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#contato" class="flex items-center p-3 rounded-full text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
+                            <i class="fas fa-envelope mr-3 text-gray-500"></i>
+                            Contato
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="mt-auto">
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 social-hover">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 social-hover">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 social-hover">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 social-hover">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-500 dark:text-gray-600 mt-4 tracking-wide">© 2023 JOÃO DEV. TODOS OS DIREITOS RESERVADOS.</p>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="flex-1 md:ml-64">
+            <!-- Main Header -->
+            <!-- Header -->
+            <header class="p-4 md:p-6 md:sticky md:top-0 bg-white md:bg-white/90 md:backdrop-blur-sm z-10 md:border-b md:border-gray-200 dark:bg-black dark:md:bg-black/90 dark:border-gray-800">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h1 class="text-2xl font-bold hover-underline inline-block">PORTFÓLIO PROFISSIONAL</h1>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm tracking-wide">DESENVOLVEDOR FULL STACK & DESIGNER UI/UX</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                            <!-- Language selector visible on mobile and desktop -->
+                            <div class="flex items-center space-x-4">
+                                <!-- Language selector with flags -->
+                                <div>
+                                    <div class="flex rounded-full bg-gray-100 p-1 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                                        <button class="flex-1 py-1 px-3 rounded-full bg-primary-light dark:bg-primary-dark text-white dark:text-black text-sm font-medium hover:bg-gray-700 dark:hover:bg-gray-300 flex items-center justify-center">
+                                            <span class="hidden md:flex fi fi-br mr-1"></span> PT
+                                        </button>
+                                        <button class="flex-1 py-1 px-3 rounded-full text-gray-600 dark:text-gray-400 text-sm hover:text-text-dark dark:hover:text-white flex items-center justify-center">
+                                            <span class="hidden md:flex fi fi-us mr-1"></span> EN
+                                        </button>
+                                        <button class="flex-1 py-1 px-3 rounded-full text-gray-600 dark:text-gray-400 text-sm hover:text-text-dark dark:hover:text-white flex items-center justify-center">
+                                            <span class="hidden md:flex fi fi-es mr-1"></span> ES
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Theme toggle button -->
+                                <button id="theme-toggle" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 hover-grow hover:bg-gray-200 dark:hover:bg-gray-700">
+                                    <i class="fas fa-moon dark:hidden"></i>
+                                    <i class="fas fa-sun hidden dark:block"></i>
+                                </button>
+                                
+
+                            <a href="#contato" class="px-5 py-2.5 bg-primary-light dark:bg-primary-dark text-white dark:text-black rounded-full font-medium flex items-center hover-grow hover:bg-gray-800 dark:hover:bg-gray-300">
+                                Contato
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Project Path Header -->
+            <header class="p-4 bg-gray-100 border-b border-gray-200 sticky top-0 md:top-20 z-10 dark:bg-gray-900 dark:border-gray-800">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2 text-sm">
+                            <a href="index.html" class="text-gray-500 hover:text-black hover-underline dark:text-gray-400 dark:hover:text-white">Home</a>
+                            <span class="text-gray-400">/</span>
+                            <a href="index.html#projetos" class="text-gray-500 hover:text-black hover-underline dark:text-gray-400 dark:hover:text-white">Projetos</a>
+                            <span class="text-gray-400">/</span>
+                            <span class="text-black dark:text-white">FinApp</span>
+                        </div>
+                        <a href="index.html#projetos" class="flex items-center text-sm text-gray-500 hover:text-black hover-underline dark:text-gray-400 dark:hover:text-white">
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Voltar para Projetos
+                        </a>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Project Content -->
+            <main>
+                <!-- Project Hero -->
+                <section class="project-hero" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')">
+                    <div class="container mx-auto px-4 h-full flex items-end relative z-10 pb-12">
+                        <div>
+                            <h1 class="text-4xl md:text-5xl font-bold mb-2">FinApp</h1>
+                            <p class="text-xl md:text-2xl text-gray-200 max-w-3xl">Aplicativo de gestão financeira pessoal com análises inteligentes e relatórios personalizados</p>
+                            <div class="flex flex-wrap gap-3 mt-6">
+                                <span class="px-4 py-2 rounded-full text-sm font-medium bg-black/20 text-black border border-black/50 dark:bg-white/20 dark:text-white dark:border-white/50">React Native</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">Firebase</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">Node.js</span>
+                                <span class="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">D3.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Project Details -->
+                <section class="py-16">
+                    <div class="container mx-auto px-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                            <!-- Main Content -->
+                            <div class="lg:col-span-2 space-y-12">
+                                <!-- Overview -->
+                                <div class="rounded-2xl p-8 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                                    <h2 class="text-2xl font-bold mb-6 flex items-center hover-underline">
+                                        <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">1</span>
+                                        Visão Geral
+                                    </h2>
+                                    <div class="space-y-4">
+                                        <p class="text-gray-600 dark:text-gray-300">FinApp é uma solução completa para gestão financeira pessoal que ajuda usuários a controlar seus gastos, planejar orçamentos e visualizar sua saúde financeira através de análises inteligentes.</p>
+                                        <p class="text-gray-600 dark:text-gray-300">O projeto foi desenvolvido para resolver o problema da falta de conscientização financeira, oferecendo uma interface simples e intuitiva que torna o controle financeiro acessível para todos.</p>
+                                        <p class="text-gray-600 dark:text-gray-300">Como desenvolvedor full stack, fui responsável por toda a arquitetura do aplicativo, desde o front-end mobile até a API e banco de dados, além dos algoritmos de análise de dados.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Features -->
+                                <div class="rounded-2xl p-8 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                                    <h2 class="text-2xl font-bold mb-6 flex items-center hover-underline">
+                                        <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">2</span>
+                                        Principais Funcionalidades
+                                    </h2>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="flex items-start">
+                                            <div class="bg-black/10 p-3 rounded-lg mr-4 dark:bg-white/10">
+                                                <i class="fas fa-chart-pie text-black dark:text-white text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-bold mb-1">Análises Visuais</h3>
+                                                <p class="text-gray-500 dark:text-gray-400 text-sm">Gráficos interativos e relatórios personalizados para entender seus gastos.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="bg-black/10 p-3 rounded-lg mr-4 dark:bg-white/10">
+                                                <i class="fas fa-bell text-black dark:text-white text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-bold mb-1">Alertas Inteligentes</h3>
+                                                <p class="text-gray-500 dark:text-gray-400 text-sm">Notificações quando gastos excedem padrões ou orçamentos.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="bg-black/10 p-3 rounded-lg mr-4 dark:bg-white/10">
+                                                <i class="fas fa-wallet text-black dark:text-white text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-bold mb-1">Multi-contas</h3>
+                                                <p class="text-gray-500 dark:text-gray-400 text-sm">Gerencie todas suas contas bancárias e cartões em um só lugar.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="bg-black/10 p-3 rounded-lg mr-4 dark:bg-white/10">
+                                                <i class="fas fa-lock text-black dark:text-white text-xl"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-bold mb-1">Segurança</h3>
+                                                <p class="text-gray-500 dark:text-gray-400 text-sm">Criptografia de ponta a ponta para proteger seus dados financeiros.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Challenges -->
+                                <div class="rounded-2xl p-8 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                                    <h2 class="text-2xl font-bold mb-6 flex items-center hover-underline">
+                                        <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">3</span>
+                                        Desafios e Soluções
+                                    </h2>
+                                    <div class="space-y-6">
+                                        <div>
+                                            <h3 class="font-bold mb-2 text-black dark:text-white">Desempenho com Grandes Conjuntos de Dados</h3>
+                                            <p class="text-gray-600 dark:text-gray-300">O aplicativo precisava processar anos de transações financeiras sem comprometer a performance. Implementei algoritmos de agregação de dados no backend e virtualização de listas no frontend para garantir fluidez mesmo com milhares de registros.</p>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold mb-2 text-black dark:text-white">Sincronização Offline</h3>
+                                            <p class="text-gray-600 dark:text-gray-300">Desenvolvi um sistema de sincronização bidirecional que permite aos usuários continuar usando o app sem conexão, com todas as alterações sendo sincronizadas quando a conexão é restabelecida.</p>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold mb-2 text-black dark:text-white">Privacidade de Dados</h3>
+                                            <p class="text-gray-600 dark:text-gray-300">Implementei criptografia de ponta a ponta para todas as informações sensíveis, garantindo que mesmo em caso de violação de dados, as informações financeiras dos usuários permaneçam seguras.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Gallery -->
+                                <div class="rounded-2xl p-8 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                                    <h2 class="text-2xl font-bold mb-6 flex items-center hover-underline">
+                                        <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">4</span>
+                                        Galeria
+                                    </h2>
+                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                        <div class="overflow-hidden rounded-lg gallery-image">
+                                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Dashboard" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="overflow-hidden rounded-lg gallery-image">
+                                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Reports" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="overflow-hidden rounded-lg gallery-image">
+                                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Analytics" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="overflow-hidden rounded-lg gallery-image">
+                                            <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Transactions" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="overflow-hidden rounded-lg gallery-image">
+                                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Budget" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="overflow-hidden rounded-lg gallery-image">
+                                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Settings" class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sidebar -->
+                            <div class="space-y-6">
+                                <!-- Project Info -->
+                                <div class="rounded-2xl p-6 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                                    <h3 class="font-bold text-lg mb-4 hover-underline inline-block">Informações do Projeto</h3>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="text-gray-500 dark:text-gray-400 text-sm">Cliente</p>
+                                            <p class="font-medium">FinTech Solutions</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-500 dark:text-gray-400 text-sm">Data</p>
+                                            <p class="font-medium">Março 2022 - Presente</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-500 dark:text-gray-400 text-sm">Categoria</p>
+                                            <p class="font-medium">Aplicativo Mobile, Finanças</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-500 dark:text-gray-400 text-sm">Status</p>
+                                            <p class="font-medium text-black dark:text-white">Em produção</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Technologies -->
+                                <div class="rounded-2xl p-6 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                                    <h3 class="font-bold text-lg mb-4 hover-underline inline-block">Tecnologias</h3>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-3 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 tech-badge dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">React Native</span>
+                                        <span class="px-3 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 tech-badge dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">Firebase</span>
+                                        <span class="px-3 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 tech-badge dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">Node.js</span>
+                                        <span class="px-3 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 tech-badge dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">D3.js</span>
+                                        <span class="px-3 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 tech-badge dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">Redux</span>
+                                        <span class="px-3 py-2 rounded-lg text-sm font-medium bg-gray-100 text-gray-700 border border-gray-300 tech-badge dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">MongoDB</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Links -->
+                                <div class="rounded-2xl p-6 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                                    <h3 class="font-bold text-lg mb-4 hover-underline inline-block">Links</h3>
+                                    <div class="space-y-3">
+                                        <a href="#" class="flex items-center justify-between p-3 bg-gray-100 rounded-lg hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-external-link-alt mr-3 text-gray-500"></i>
+                                                <span>Site Oficial</span>
+                                            </div>
+                                            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+                                        </a>
+                                        <a href="#" class="flex items-center justify-between p-3 bg-gray-100 rounded-lg hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="flex items-center">
+                                                <i class="fab fa-app-store mr-3 text-gray-500"></i>
+                                                <span>App Store</span>
+                                            </div>
+                                            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+                                        </a>
+                                        <a href="#" class="flex items-center justify-between p-3 bg-gray-100 rounded-lg hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="flex items-center">
+                                                <i class="fab fa-google-play mr-3 text-gray-500"></i>
+                                                <span>Google Play</span>
+                                            </div>
+                                            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+                                        </a>
+                                        <a href="#" class="flex items-center justify-between p-3 bg-gray-100 rounded-lg hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="flex items-center">
+                                                <i class="fab fa-github mr-3 text-gray-500"></i>
+                                                <span>Código Fonte</span>
+                                            </div>
+                                            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Stats -->
+                                <div class="rounded-2xl p-6 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                                    <h3 class="font-bold text-lg mb-4 hover-underline inline-block">Estatísticas</h3>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="text-gray-500 dark:text-gray-400 text-sm">Downloads</p>
+                                            <p class="font-medium text-2xl">250K+</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-500 dark:text-gray-400 text-sm">Avaliação</p>
+                                            <div class="flex items-center">
+                                                <div class="flex mr-2">
+                                                    <i class="fas fa-star text-yellow-400"></i>
+                                                    <i class="fas fa-star text-yellow-400"></i>
+                                                    <i class="fas fa-star text-yellow-400"></i>
+                                                    <i class="fas fa-star text-yellow-400"></i>
+                                                    <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                                </div>
+                                                <span class="font-medium">4.7/5</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-500 dark:text-gray-400 text-sm">Redução de Gastos</p>
+                                            <p class="font-medium text-2xl text-black dark:text-white">32%</p>
+                                            <p class="text-gray-500 dark:text-gray-400 text-xs">em média para usuários ativos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Next Project -->
+                <section class="py-16 border-t border-gray-200 dark:border-gray-800">
+                    <div class="container mx-auto px-4">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <div>
+                                <p class="text-gray-500 dark:text-gray-400 mb-2">Próximo Projeto</p>
+                                <h2 class="text-2xl font-bold hover-underline inline-block">Shoppy - Plataforma de E-commerce</h2>
+                            </div>
+                            <a href="#" class="mt-6 md:mt-0 px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium flex items-center hover-grow hover:bg-gray-800 dark:hover:bg-gray-200">
+                                Ver Projeto
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
