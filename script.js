@@ -64,4 +64,127 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.setProperty('--mouse-x', `${x}px`);
         this.style.setProperty('--mouse-y', `${y}px`);
     });
+
+    // Usando um objeto para encapsular todas as funções do Lightbox
+const Lightbox = {
+    currentIndex: 0,
+    images: [
+        {src: "/assets/oficiofacil/Login Office - Google Chrome 28_04_2025 10_18_49.png", alt: "FinApp Dashboard"},
+        {src: "/assets/oficiofacil/mobile_oficio_facil.png", alt: "FinApp Reports"},
+        {src: "/assets/oficiofacil/oficio_facil.png", alt: "FinApp Analytics"},
+        {src: "/assets/oficiofacil/OfícioFácil - Google Chrome 28_04_2025 10_46_27.png", alt: "FinApp Transactions"},
+        {src: "/assets/oficiofacil/OfícioFácil - Google Chrome 28_04_2025 10_49_44.png", alt: "FinApp Budget"},
+        {src: "/assets/oficiofacil/OfícioFácil - Google Chrome 28_04_2025 11_07_03.png", alt: "FinApp Settings"}
+    ],
+    
+    init: function() {
+        // Adiciona event listeners para todas as imagens da galeria
+        document.querySelectorAll('.gallery-image img').forEach(img => {
+            img.addEventListener('click', () => {
+                this.open(parseInt(img.getAttribute('data-index')));
+            });
+        });
+        
+        // Prepara o slider do lightbox
+        const slider = document.getElementById('lightbox-slider');
+        this.images.forEach((img, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'w-full h-full flex-shrink-0 flex items-center justify-center';
+            slide.innerHTML = `<img src="${img.src}" alt="${img.alt}" class="max-w-full max-h-full object-contain">`;
+            slider.appendChild(slide);
+        });
+        
+        // Configura eventos de teclado
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('hidden')) {
+                if (e.key === 'Escape') this.close();
+                if (e.key === 'ArrowLeft') this.navigate(-1);
+                if (e.key === 'ArrowRight') this.navigate(1);
+            }
+        });
+        
+        // Configura toque para mobile
+        this.setupTouch();
+    },
+    
+    open: function(index) {
+        this.currentIndex = index;
+        document.getElementById('lightbox').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        this.update();
+    },
+    
+    close: function() {
+        document.getElementById('lightbox').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    },
+    
+    navigate: function(direction) {
+        this.currentIndex += direction;
+        if (this.currentIndex < 0) this.currentIndex = this.images.length - 1;
+        if (this.currentIndex >= this.images.length) this.currentIndex = 0;
+        this.update();
+    },
+    
+    update: function() {
+        const slider = document.getElementById('lightbox-slider');
+        const caption = document.getElementById('lightbox-caption');
+        const counter = document.getElementById('lightbox-counter');
+        
+        slider.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+        caption.textContent = this.images[this.currentIndex].alt;
+        counter.textContent = `${this.currentIndex + 1} / ${this.images.length}`;
+    },
+    
+    setupTouch: function() {
+        const slider = document.getElementById('lightbox-slider');
+        let startX = 0;
+        let isDragging = false;
+        
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            slider.style.transition = 'none';
+        }, {passive: true});
+        
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].clientX;
+            const diff = startX - x;
+            slider.style.transform = `translateX(calc(-${this.currentIndex * 100}% - ${diff}px))`;
+        }, {passive: true});
+        
+        slider.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            
+            slider.style.transition = 'transform 0.3s ease';
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    this.navigate(1);
+                } else {
+                    this.navigate(-1);
+                }
+            } else {
+                this.update();
+            }
+        }, {passive: true});
+    }
+};
+
+// Inicializa o Lightbox quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+    Lightbox.init();
+    
+    // Fechar ao clicar fora da imagem
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) {
+            Lightbox.close();
+        }
+    });
+});
 });

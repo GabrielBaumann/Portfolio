@@ -154,6 +154,23 @@
             bottom: 0;
             background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
         }
+
+        #lightbox-slider {
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+    
+    #lightbox-slider > div {
+        width: 100%;
+        height: 100%;
+    }
+    
+    @media (max-width: 768px) {
+        #lightbox .absolute.left-4, 
+        #lightbox .absolute.right-4 {
+            display: none;
+        }
+    }
     </style>
 </head>
 <body class="min-h-screen antialiased bg-light-bg text-text-dark font-space-grotesk dark:bg-dark-bg dark:text-dark-text">
@@ -292,7 +309,7 @@
             <!-- Project Content -->
             <main>
                 <!-- Project Hero -->
-                <section class="project-hero" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80')">
+                <section class="project-hero" style="background-image: url('/assets/logo.png');">
                     <div class="container mx-auto px-4 h-full flex items-end relative z-10 pb-12">
                         <div>
                             <h1 class="text-4xl md:text-5xl font-bold mb-2 text-white">FinApp</h1>
@@ -395,32 +412,76 @@
                                 </div>
                                 
                                 <!-- Gallery -->
-                                <div class="rounded-2xl p-8 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
-                                    <h2 class="text-2xl font-bold mb-6 flex items-center hover-underline">
-                                        <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">4</span>
-                                        Galeria
-                                    </h2>
-                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                        <div class="overflow-hidden rounded-lg gallery-image">
-                                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Dashboard" class="w-full h-full object-cover">
-                                        </div>
-                                        <div class="overflow-hidden rounded-lg gallery-image">
-                                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Reports" class="w-full h-full object-cover">
-                                        </div>
-                                        <div class="overflow-hidden rounded-lg gallery-image">
-                                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Analytics" class="w-full h-full object-cover">
-                                        </div>
-                                        <div class="overflow-hidden rounded-lg gallery-image">
-                                            <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Transactions" class="w-full h-full object-cover">
-                                        </div>
-                                        <div class="overflow-hidden rounded-lg gallery-image">
-                                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Budget" class="w-full h-full object-cover">
-                                        </div>
-                                        <div class="overflow-hidden rounded-lg gallery-image">
-                                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="FinApp Settings" class="w-full h-full object-cover">
-                                        </div>
-                                    </div>
-                                </div>
+<div class="rounded-2xl p-4 md:p-8 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+    <h2 class="text-2xl font-bold mb-6 flex items-center hover-underline">
+        <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">4</span>
+        Galeria
+    </h2>
+    
+    <!-- Grid de miniaturas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="overflow-hidden rounded-lg gallery-image">
+            <img src="/assets/oficiofacil/Login Office - Google Chrome 28_04_2025 10_18_49.png" 
+                 alt="FinApp Dashboard" 
+                 class="w-full h-48 object-cover cursor-pointer"
+                 data-index="0">
+        </div>
+        <div class="overflow-hidden rounded-lg gallery-image">
+            <img src="/assets/oficiofacil/mobile_oficio_facil.png" 
+                 alt="FinApp Reports" 
+                 class="w-full h-48 object-cover cursor-pointer"
+                 data-index="1">
+        </div>
+        <div class="overflow-hidden rounded-lg gallery-image">
+            <img src="/assets/oficiofacil/oficio_facil.png" 
+                 alt="FinApp Analytics" 
+                 class="w-full h-48 object-cover cursor-pointer"
+                 data-index="2">
+        </div>
+        <div class="overflow-hidden rounded-lg gallery-image">
+            <img src="/assets/oficiofacil/OfícioFácil - Google Chrome 28_04_2025 10_46_27.png" 
+                 alt="FinApp Transactions" 
+                 class="w-full h-48 object-cover cursor-pointer"
+                 data-index="3">
+        </div>
+        <div class="overflow-hidden rounded-lg gallery-image">
+            <img src="/assets/oficiofacil/OfícioFácil - Google Chrome 28_04_2025 10_49_44.png" 
+                 alt="FinApp Budget" 
+                 class="w-full h-48 object-cover cursor-pointer"
+                 data-index="4">
+        </div>
+        <div class="overflow-hidden rounded-lg gallery-image">
+            <img src="/assets/oficiofacil/OfícioFácil - Google Chrome 28_04_2025 11_07_03.png" 
+                 alt="FinApp Settings" 
+                 class="w-full h-48 object-cover cursor-pointer"
+                 data-index="5">
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 z-50 hidden bg-black bg-opacity-90 backdrop-blur-sm">
+    <span class="absolute top-4 right-4 text-white text-4xl cursor-pointer z-50 hover:text-gray-300" onclick="Lightbox.close()">&times;</span>
+    
+    <div class="flex items-center justify-center h-full w-full">
+        <div class="relative w-full h-full max-w-6xl max-h-[90vh] flex items-center justify-center">
+            <div id="lightbox-slider" class="flex w-full h-full overflow-hidden touch-pan-x">
+                <!-- As imagens serão inseridas aqui via JavaScript -->
+            </div>
+            
+            <span class="absolute left-4 text-white text-4xl cursor-pointer z-50 hover:text-gray-300 hidden md:block" 
+                  onclick="Lightbox.navigate(-1)">&#10094;</span>
+            <span class="absolute right-4 text-white text-4xl cursor-pointer z-50 hover:text-gray-300 hidden md:block" 
+                  onclick="Lightbox.navigate(1)">&#10095;</span>
+            
+            <div class="absolute bottom-4 left-0 right-0 text-center text-white">
+                <p id="lightbox-caption" class="text-lg"></p>
+                <p id="lightbox-counter" class="text-sm opacity-70"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
                             </div>
                             
                             <!-- Sidebar -->
