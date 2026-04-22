@@ -203,7 +203,7 @@
     </style>
 </head>
 <body class="min-h-screen antialiased bg-light-bg text-text-dark font-space-grotesk dark:bg-dark-bg dark:text-dark-text">
-    <div class="flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row mx-auto max-w-[1600px]">
         <!-- Sidebar (desktop) -->
         <div class="hidden md:flex flex-col w-64 h-screen fixed p-6 border-r border-gray-200 bg-white z-20 dark:border-gray-800 dark:bg-black">
             <div class="flex items-center mb-10">
@@ -322,28 +322,28 @@
                 <div class="container mx-auto px-4">
                     <!-- Sobre Mim Section -->
                     <section id="sobre" class="mb-16">
-                        <div class="flex justify-between items-center mb-8">
+                        <div class="hidden md:flex justify-between items-center md:mb-8">
                             <h2 class="text-2xl font-bold flex items-center hover-underline">
                                 <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">1</span>
                                 SOBRE MIM
                             </h2>
                         </div>
                         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                            <div class="rounded-2xl p-6 lg:col-span-2 bg-card-bg border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
+                            <div class="md:p-6 lg:col-span-2 rounded-xl hover-grow card-hover">
                                 <div class="flex flex-col md:flex-row items-center">
-                                    <div class="w-32 h-32 rounded-full border-2 border-black dark:border-white shadow-lg flex items-center justify-center mb-6 md:mb-0 md:mr-6 flex-shrink-0 overflow-hidden hover-grow">
-                                        <img src="./assets/personal.jpeg" alt="João Dev" class="w-full h-full object-cover">
+                                    <div class="w-64 h-64 rounded-full md:rounded-md flex items-center justify-center mb-6 md:mb-0 md:mr-6 flex-shrink-0 overflow-hidden hover-grow">
+                                        <img src="./assets/profile.jpeg" alt="João Dev" class="w-full h-full object-cover">
                                     </div>
                                     <div>
-                                        <h2 class="text-2xl font-bold mb-2 hover-underline inline-block">João Dev</h2>
-                                        <p class="text-gray-700 dark:text-gray-300 font-medium mb-3 tracking-wide">DESENVOLVEDOR FULL STACK</p>
+                                        <h2 class="text-2xl font-bold mb-2 hover-underline inline-block">Gabriel Baumann</h2>
+                                        <p class="text-gray-700 dark:text-gray-300 font-medium mb-3 tracking-wide">Desenvoldevor Web</p>
                                         <p class="text-gray-600 dark:text-gray-400 mb-4">Especialista em criar experiências digitais excepcionais com foco em performance, acessibilidade e design intuitivo. Combinando habilidades técnicas e criativas para entregar soluções completas.</p>
                                         <div class="flex flex-wrap gap-3">
-                                            <a href="#" class="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium text-sm flex items-center hover-grow hover:bg-gray-800 dark:hover:bg-gray-200 mobile-full-width-btn">
+                                            <a href="#" class="px-4 py-4 md:py-2 bg-black dark:bg-white text-white dark:text-black rounded-full md:rounded-md font-medium text-sm flex items-center hover-grow hover:bg-gray-800 dark:hover:bg-gray-200 mobile-full-width-btn">
                                                 <i class="fas fa-download mr-2"></i>
                                                 DOWNLOAD CV
                                             </a>
-                                            <a href="#projetos" class="px-4 py-2 text-gray-600 dark:text-gray-400 rounded-full flex items-center border border-gray-300 dark:border-gray-600 font-medium text-sm hover-grow hover:text-text-dark dark:hover:text-white hover:border-black dark:hover:border-white mobile-full-width-btn">
+                                            <a href="#projetos" class="px-4 py-4 md:py-2 text-gray-600 dark:text-gray-400 rounded-full md:rounded-md flex items-center border border-gray-300 dark:border-gray-600 font-medium text-sm hover-grow hover:text-text-dark dark:hover:text-white hover:border-black dark:hover:border-white mobile-full-width-btn">
                                                 VER PROJETOS
                                                 <i class="fas fa-arrow-right ml-2 text-xs"></i>
                                             </a>
