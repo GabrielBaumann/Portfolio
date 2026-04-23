@@ -22,21 +22,21 @@
                     },
                     colors: {
                         'primary': {
-                            light: '#000000',  // Preto (tema claro)
-                            dark: '#ffffff'    // Branco (tema escuro)
+                            light: '#000000',
+                            dark: '#ffffff'
                         },
                         'secondary': {
-                            light: '#333333',  // Cinza escuro (tema claro)
-                            dark: '#e5e5e5'   // Cinza claro (tema escuro)
+                            light: '#333333',
+                            dark: '#e5e5e5'
                         },
-                        'light-bg': '#ffffff',      // Cor de fundo clara
-                        'card-bg': '#f8f8f8',       // Cor de cards
-                        'text-dark': '#000000',     // Texto escuro
-                        'text-muted': '#666666',    // Texto secundário
-                        'dark-bg': '#000000',       // Cor de fundo escura
-                        'dark-card': '#111111',      // Cor de cards escuros
-                        'dark-text': '#ffffff',     // Texto claro
-                        'dark-muted': '#a1a1a1'     // Texto secundário escuro
+                        'light-bg': '#ffffff',
+                        'card-bg': '#f8f8f8',
+                        'text-dark': '#000000',
+                        'text-muted': '#666666',
+                        'dark-bg': '#000000',
+                        'dark-card': '#111111',
+                        'dark-text': '#ffffff',
+                        'dark-muted': '#a1a1a1'
                     },
                     transitionProperty: {
                         'height': 'height',
@@ -50,7 +50,6 @@
         html {
             scroll-behavior: smooth;
         }
-        /* Custom hover effects - only for desktop */
         @media (min-width: 768px) {
             .hover-grow {
                 transition: transform 0.3s ease;
@@ -58,7 +57,7 @@
             .hover-grow:hover {
                 transform: translateY(-3px);
             }
-            
+
             .card-hover {
                 transition: all 0.3s ease;
             }
@@ -69,7 +68,7 @@
             .dark .card-hover:hover {
                 box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
             }
-            
+
             .social-hover {
                 transition: all 0.3s ease;
             }
@@ -82,14 +81,14 @@
                 background-color: #e5e5e5 !important;
                 color: black !important;
             }
-            
+
             .project-image {
                 transition: all 0.5s ease;
             }
             .project-card:hover .project-image {
                 transform: scale(1.03);
             }
-            
+
             .skill-icon {
                 transition: all 0.3s ease;
             }
@@ -100,7 +99,7 @@
             .dark .skill-card:hover .skill-icon {
                 color: #e5e5e5;
             }
-            
+
             .contact-card {
                 transition: all 0.3s ease;
             }
@@ -111,13 +110,12 @@
                 background-color: #222222 !important;
             }
 
-            /* Sidebar links - garante texto sempre visível */
             .sidebar-item {
-                color: #4b5563 !important; /* text-gray-600 */
+                color: #4b5563 !important;
                 transition: all 0.2s ease;
             }
             .dark .sidebar-item {
-                color: #9ca3af !important; /* dark:text-gray-400 */
+                color: #9ca3af !important;
             }
             .sidebar-item.active {
                 background-color: #000000 !important;
@@ -133,7 +131,6 @@
             }
         }
 
-        /* Mobile projects scroll */
         @media (max-width: 767px) {
             .projects-scroll-container {
                 display: flex;
@@ -152,7 +149,6 @@
                 flex-shrink: 0;
             }
 
-            /* Full width buttons on mobile */
             .mobile-full-width-btn {
                 width: 100%;
                 padding: 12px 16px;
@@ -170,26 +166,35 @@
                 margin-right: 4px;
             }
 
-            /* \\ news card */
             .hover-grow {
                 transition: all 0.3s ease;
             }
-
             .hover-grow:hover {
                 transform: translateY(-2px);
             }
-
             .card-hover {
                 transition: box-shadow 0.3s ease;
             }
-
             .card-hover:hover {
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
-
             .dark .card-hover:hover {
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             }
+        }
+
+        .lang-btn.active-lang {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+        .dark .lang-btn.active-lang {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+        .lang-btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
     </style>
 </head>
@@ -199,52 +204,52 @@
         <div class="hidden md:flex flex-col w-64 h-screen fixed p-6 border-r border-gray-200 bg-white z-20 dark:border-gray-800 dark:bg-black">
             <div class="flex items-center mb-10">
                 <div class="w-12 h-12 rounded-full overflow-hidden">
-                    <img src="/assets/profile.jpeg" alt="profile" class="w-full h-full object-cover object-center">
+                    <img src="./assets/profile.jpeg" alt="profile" class="w-full h-full object-cover object-center">
                 </div>
-                <h1 class="ml-3 text-xl font-bold">Gabriel Dev</h1>
+                <h1 class="ml-3 text-xl font-bold" data-i18n="sidebar.name">Gabriel Dev</h1>
             </div>
-            
+
             <nav class="flex-1">
                 <ul class="space-y-2">
                     <li>
                         <a href="#sobre" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
                             <i class="fas fa-user mr-3"></i>
-                            <span class="z-99">Sobre Mim</span>
+                            <span class="z-99" data-i18n="sidebar.about">Sobre Mim</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#projetos" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline  sidebar-item">
+                        <a href="#projetos" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
                             <i class="fas fa-code mr-3"></i>
-                            Projetos
+                            <span data-i18n="sidebar.projects">Projetos</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#experiencia" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline  sidebar-item">
+                        <a href="#experiencia" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
                             <i class="fas fa-briefcase mr-3"></i>
-                            Experiência
+                            <span data-i18n="sidebar.experience">Experiência</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#educacao" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline  sidebar-item">
+                        <a href="#educacao" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
                             <i class="fas fa-graduation-cap mr-3"></i>
-                            Educação
+                            <span data-i18n="sidebar.education">Educação</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#habilidades" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline  sidebar-item">
+                        <a href="#habilidades" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
                             <i class="fas fa-star mr-3"></i>
-                            Prêmiações
+                            <span data-i18n="sidebar.awards">Prêmiações</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#contato" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline  sidebar-item">
+                        <a href="#contato" class="flex items-center justify-left pl-8 p-3 rounded-md text-gray-600 dark:text-gray-400 hover-underline sidebar-item">
                             <i class="fas fa-envelope mr-3"></i>
-                            Contato
+                            <span data-i18n="sidebar.contact">Contato</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-            
+
             <div class="mt-auto">
                 <div class="flex space-x-4">
                     <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 social-hover">
@@ -260,10 +265,10 @@
                         <i class="fab fa-dribbble"></i>
                     </a>
                 </div>
-                <p class="text-xs text-gray-600 dark:text-gray-600 mt-4 tracking-wide">© 2023 JOÃO DEV. TODOS OS DIREITOS RESERVADOS.</p>
+                <p class="text-xs text-gray-600 dark:text-gray-600 mt-4 tracking-wide" data-i18n="sidebar.copyright">© 2023 JOÃO DEV. TODOS OS DIREITOS RESERVADOS.</p>
             </div>
         </div>
-        
+
         <!-- Main content -->
         <div class="flex-1 md:ml-64">
             <!-- Header -->
@@ -271,43 +276,40 @@
                 <div class="container mx-auto px-4">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
                         <div>
-                            <h1 class="text-2xl font-bold hover-underline inline-block">GABRIEL BAUMANN</h1>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm tracking-wide">DESENVOLVEDOR WEB</p>
+                            <h1 class="text-2xl font-bold hover-underline inline-block" data-i18n="header.name">GABRIEL BAUMANN</h1>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm tracking-wide" data-i18n="header.role">DESENVOLVEDOR WEB</p>
                         </div>
                         <div class="mt-4 md:mt-0 flex items-center space-x-4">
-                            <!-- Language selector visible on mobile and desktop -->
                             <div class="flex items-center space-x-4">
-                                <!-- Language selector with flags -->
                                 <div>
                                     <div class="flex rounded-full bg-gray-100 p-1 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                                        <button class="flex-1 py-1 px-3 rounded-full bg-primary-light dark:bg-primary-dark text-white dark:text-black text-sm font-medium hover:bg-gray-700 dark:hover:bg-gray-300 flex items-center justify-center">
+                                        <button data-lang="pt" class="lang-btn active-lang flex-1 py-1 px-3 rounded-full text-white dark:text-black text-sm font-medium flex items-center justify-center">
                                             <span class="hidden md:flex fi fi-br mr-1"></span> PT
                                         </button>
-                                        <button class="flex-1 py-1 px-3 rounded-full text-gray-600 dark:text-gray-400 text-sm hover:text-text-dark dark:hover:text-white flex items-center justify-center">
+                                        <button data-lang="en" class="lang-btn flex-1 py-1 px-3 rounded-full text-gray-600 dark:text-gray-400 text-sm flex items-center justify-center">
                                             <span class="hidden md:flex fi fi-us mr-1"></span> EN
                                         </button>
-                                        <button class="flex-1 py-1 px-3 rounded-full text-gray-600 dark:text-gray-400 text-sm hover:text-text-dark dark:hover:text-white flex items-center justify-center">
-                                            <span class="hidden md:flex fi fi-es mr-1"></span> ES
+                                        <button data-lang="de" class="lang-btn flex-1 py-1 px-3 rounded-full text-gray-600 dark:text-gray-400 text-sm flex items-center justify-center">
+                                            <span class="hidden md:flex fi fi-de mr-1"></span> DE
                                         </button>
                                     </div>
                                 </div>
-                                
-                                <!-- Theme toggle button -->
+
                                 <button id="theme-toggle" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 hover-grow hover:bg-gray-200 dark:hover:bg-gray-700">
                                     <i class="fas fa-moon dark:hidden"></i>
                                     <i class="fas fa-sun hidden dark:block"></i>
                                 </button>
-                                
 
-                            <a href="#contato" class="px-5 py-2.5 bg-primary-light dark:bg-primary-dark text-white dark:text-black rounded-full font-medium flex items-center hover-grow hover:bg-gray-800 dark:hover:bg-gray-300">
-                                Contato
-                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                            </a>
+                                <a href="#contato" class="px-5 py-2.5 bg-primary-light dark:bg-primary-dark text-white dark:text-black rounded-full font-medium flex items-center hover-grow hover:bg-gray-800 dark:hover:bg-gray-300">
+                                    <span data-i18n="header.contact">Contato</span>
+                                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </header>
-            
+
             <!-- Dashboard Content -->
             <main class="p-4 md:p-6">
                 <div class="container mx-auto px-4">
@@ -316,7 +318,7 @@
                         <div class="hidden md:flex justify-between items-center md:mb-8">
                             <h2 class="text-2xl font-bold flex items-center hover-underline">
                                 <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">1</span>
-                                SOBRE MIM
+                                <span data-i18n="about.title">SOBRE MIM</span>
                             </h2>
                         </div>
                         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -326,55 +328,51 @@
                                         <img src="./assets/profile.jpeg" alt="João Dev" class="w-full h-full object-cover">
                                     </div>
                                     <div>
-                                        <h2 class="text-2xl font-bold mb-2 hover-underline inline-block">Gabriel Baumann</h2>
-                                        <p class="text-gray-700 dark:text-gray-300 font-medium mb-3 tracking-wide">Desenvoldevor Web</p>
-                                        <p class="text-gray-600 dark:text-gray-400 mb-4">Possuo experiência com ferramentas para desenvolvimento web como PHP, Tailwind CSS, Laravel, MySQL, Git e GitHub. Bem como tenho conhecimento em análise, gestão e tratamento de dados, Microsoft Access, Excel e Power BI.</p>
+                                        <h2 class="text-2xl font-bold mb-2 hover-underline inline-block" data-i18n="about.name">Gabriel Baumann</h2>
+                                        <p class="text-gray-700 dark:text-gray-300 font-medium mb-3 tracking-wide" data-i18n="about.role">Desenvolvedor Web</p>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-4" data-i18n="about.description">Possuo experiência com ferramentas para desenvolvimento web como PHP, Tailwind CSS, Laravel, MySQL, Git e GitHub. Bem como tenho conhecimento em análise, gestão e tratamento de dados, Microsoft Access, Excel e Power BI.</p>
                                         <div class="flex flex-wrap gap-3">
                                             <a href="#" class="px-4 py-4 md:py-2 bg-black dark:bg-white text-white dark:text-black rounded-full md:rounded-md font-medium text-sm flex items-center hover-grow hover:bg-gray-800 dark:hover:bg-gray-200 mobile-full-width-btn">
                                                 <i class="fas fa-download mr-2"></i>
-                                                DOWNLOAD CV
+                                                <span data-i18n="about.downloadCV">DOWNLOAD CV</span>
                                             </a>
-                                            <a href="#projetos" class="px-4 py-4 md:py-2 text-gray-600 dark:text-gray-400 rounded-full md:rounded-md flex items-center  dark:border-gray-600 font-medium text-sm hover-grow hover:text-text-dark dark:hover:text-white hover:border-black dark:hover:border-white mobile-full-width-btn">
-                                                VER PROJETOS
+                                            <a href="#projetos" class="px-4 py-4 md:py-2 text-gray-600 dark:text-gray-400 rounded-full md:rounded-md flex items-center dark:border-gray-600 font-medium text-sm hover-grow hover:text-text-dark dark:hover:text-white hover:border-black dark:hover:border-white mobile-full-width-btn">
+                                                <span data-i18n="about.viewProjects">VER PROJETOS</span>
                                                 <i class="fas fa-arrow-right ml-2 text-xs"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="grid grid-cols-2 grid-rows-3 gap-2 max-h-[40vh] h-full">
-                                <!-- Card 1: Projetos -->
-                                <div class="bg-gray-100 border text-gray-600 border-gray-300 dark:bg-gray-900 dark:border-gray-800 transition-all duration-300 hover:bg-gray-300 hover:text-black dark:hover:text-red-500 p-5 rounded-md flex flex-col  hover-grow card-hover row-span-2 overflow-hidden">
+                                <div class="bg-gray-100 border text-gray-600 border-gray-300 dark:bg-gray-900 dark:border-gray-800 transition-all duration-300 hover:bg-gray-300 hover:text-black dark:hover:text-red-500 p-5 rounded-md flex flex-col hover-grow card-hover row-span-2 overflow-hidden">
                                     <span class="z-99 text-2xl sm:text-4xl 2xl:text-5xl font-bold">06</span>
-                                    <h3 class="z-99 font-semibold text-xs sm:text-sm tracking-wide">PROJETOS</h3>
+                                    <h3 class="z-99 font-semibold text-xs sm:text-sm tracking-wide" data-i18n="about.stats.projects">PROJETOS</h3>
                                     <div class="z-1 bottom-[-50px] right-[-50px] relative md:bottom-[-40px] 2xl:bottom-[-50px] 2xl:right-[-50px] flex items-center justify-between mb-3">
                                         <i class="z-1 fas fa-check-circle text-[150px]"></i>
                                     </div>
                                 </div>
-                            
-                                <!-- Card 2: Clientes -->
+
                                 <div class="bg-gray-100 border text-gray-600 border-gray-300 dark:bg-gray-900 dark:border-gray-800 transition-all duration-300 hover:bg-gray-300 hover:text-black dark:hover:text-red-500 p-5 rounded-md flex flex-col hover-grow card-hover overflow-hidden">
                                     <span class="z-99 text-2xl sm:text-4xl 2xl:text-5xl font-bold">64</span>
-                                    <h3 class="z-99 font-semibold text-xs sm:text-sm tracking-wide">Clientes</h3>
+                                    <h3 class="z-99 font-semibold text-xs sm:text-sm tracking-wide" data-i18n="about.stats.clients">Clientes</h3>
                                     <div class="z-1 relative top-[-50px] right-[-70px] md:top-[-60px] md:right-[-70px] 2xl:top-[-50px] 2xl:right-[-70px] flex items-center justify-between mb-3">
                                         <i class="z-1 fas fa-users text-[150px]"></i>
                                     </div>
                                 </div>
-                            
-                                <!-- Card 3: Experiência -->
+
                                 <div class="bg-gray-100 border text-gray-600 border-gray-300 dark:bg-gray-900 dark:border-gray-800 transition-all duration-300 hover:bg-gray-300 hover:text-black dark:hover:text-red-500 p-5 rounded-md flex flex-col hover-grow card-hover overflow-hidden row-span-2">
-                                    <span class="z-99 text-2xl sm:text-4xl 2xl:text-5xl font-bold">+2 Anos</span>
-                                    <h3 class="z-99 font-semibold text-xs sm:text-sm tracking-wide">EXPERIÊNCIA</h3>
+                                    <span class="z-99 text-2xl sm:text-4xl 2xl:text-5xl font-bold" data-i18n="about.stats.experienceYears">+2 Anos</span>
+                                    <h3 class="z-99 font-semibold text-xs sm:text-sm tracking-wide" data-i18n="about.stats.experience">EXPERIÊNCIA</h3>
                                     <div class="z-1 relative bottom-[-50px] right-[-70px] md:bottom-[-30px] 2xl:bottom-[-50px] 2xl:right-[-70px] flex items-center justify-between mb-3">
                                         <i class="z-1 fas fa-briefcase text-[150px]"></i>
                                     </div>
                                 </div>
-                            
-                                <!-- Card 4: Prêmios -->
+
                                 <div class="bg-gray-100 border text-gray-600 border-gray-300 dark:bg-gray-900 dark:border-gray-800 transition-all duration-300 hover:bg-gray-300 hover:text-black dark:hover:text-red-500 p-5 rounded-md flex flex-col hover-grow card-hover overflow-hidden">
                                     <span class="z-99 text-2xl sm:text-4xl 2xl:text-5xl font-bold">5</span>
-                                    <h3 class="z-99 font-semibold text-xs sm:text-sm tracking-wide">PRÊMIOS</h3>
+                                    <h3 class="z-99 font-semibold text-xs sm:text-sm tracking-wide" data-i18n="about.stats.awards">PRÊMIOS</h3>
                                     <div class="z-1 relative bottom-[50px] right-[-90px] md:bottom-[30px] md:right-[-60px] 2xl:bottom-[50px] 2xl:right-[-90px] flex items-center justify-between mb-3">
                                         <i class="z-1 fas fa-award text-[150px]"></i>
                                     </div>
@@ -382,17 +380,17 @@
                             </div>
                         </div>
                     </section>
-                    
+
                     <!-- Stack -->
                     <div class="bg-white pt-12 pb-32 dark:bg-black">
                         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                            <h2 class="text-center text-lg/8 font-semibold text-gray-900 dark:text-white">Tecnologias que trabalho</h2>
+                            <h2 class="text-center text-lg/8 font-semibold text-gray-900 dark:text-white" data-i18n="stack.title">Tecnologias que trabalho</h2>
                             <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-                            <img width="158" height="48" src="./assets/img/stack/PHP-logo.svg.png" alt="Transistor" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
-                            <img width="158" height="48" src="./assets/img/stack/laravel.png" alt="Reform" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
-                            <img width="158" height="48" src="./assets/img/stack/Tailwind_CSS_logo_with_dark_text.svg.png" alt="Tuple" class="dark:bg-gray-300 p-3 rounded-full col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
-                            <img width="158" height="48" src="./assets/img/stack/MySQL_textlogo.svg" alt="SavvyCal" class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" />
-                            <img width="158" height="48" src="./assets/img/stack/github.png" alt="Statamic" class="dark:bg-gray-300 p-3 rounded-full col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" />
+                                <img width="158" height="48" src="./assets/img/stack/PHP-logo.svg.png" alt="Transistor" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
+                                <img width="158" height="48" src="./assets/img/stack/laravel.png" alt="Reform" class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
+                                <img width="158" height="48" src="./assets/img/stack/Tailwind_CSS_logo_with_dark_text.svg.png" alt="Tuple" class="dark:bg-gray-300 p-3 rounded-full col-span-2 max-h-12 w-full object-contain lg:col-span-1" />
+                                <img width="158" height="48" src="./assets/img/stack/MySQL_textlogo.svg" alt="SavvyCal" class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" />
+                                <img width="158" height="48" src="./assets/img/stack/github.png" alt="Statamic" class="dark:bg-gray-300 p-3 rounded-full col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" />
                             </div>
                         </div>
                     </div>
@@ -402,11 +400,10 @@
                         <div class="flex justify-between items-center mb-8">
                             <h2 class="text-2xl font-bold flex items-center hover-underline">
                                 <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">2</span>
-                                CONHEÇA MEUS PROJETOS
+                                <span data-i18n="projects.title">CONHEÇA MEUS PROJETOS</span>
                             </h2>
                         </div>
-                        
-                        <!-- Projects container with horizontal scroll on mobile -->
+
                         <div class="projects-scroll-container md:grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 md:gap-4">
                             <!-- Projeto 1 -->
                             <div class="bg-gray-100 project-card-mobile rounded-md overflow-hidden border border-gray-200 project-card hover-grow w-[30px] md:w-full dark:bg-dark-card dark:border-gray-800">
@@ -414,7 +411,7 @@
                                 </div>
                                 <div class="p-6">
                                     <h1 class="mb-2 text-xl text-black dark:text-white font-semibold">Ofício Fácil</h1>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" data-i18n="projects.desc1">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-orange-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">HTML</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-blue-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">CSS</span>
@@ -422,10 +419,6 @@
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-yellow-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">JAVASCRIPT</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-red-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">MSQL</span>
                                     </div>
-                                    <!-- <a href="oficiofacil.html" class="text-black dark:text-white font-medium text-sm flex items-center justify-between mt-4 hover-underline">
-                                        <span>VER DETALHES</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </a> -->
                                 </div>
                             </div>
                             <!-- Projeto 2 -->
@@ -434,7 +427,7 @@
                                 </div>
                                 <div class="p-6">
                                     <h1 class="mb-2 text-xl text-black dark:text-white font-semibold">Sine 360</h1>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" data-i18n="projects.desc2">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-orange-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">HTML</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-blue-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">CSS</span>
@@ -442,10 +435,6 @@
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-yellow-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">JAVASCRIPT</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-red-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">MSQL</span>
                                     </div>
-                                    <!-- <a href="oficiofacil.html" class="text-black dark:text-white font-medium text-sm flex items-center justify-between mt-4 hover-underline">
-                                        <span>VER DETALHES</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </a> -->
                                 </div>
                             </div>
                             <!-- Projeto 3 -->
@@ -454,17 +443,13 @@
                                 </div>
                                 <div class="p-6">
                                     <h1 class="mb-2 text-xl text-black dark:text-white font-semibold">Hotel Hotel</h1>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" data-i18n="projects.desc3">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-orange-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">HTML</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-blue-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">CSS</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-purple-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">TAILWIND CSS</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-yellow-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">JAVASCRIPT</span>
                                     </div>
-                                    <!-- <a href="oficiofacil.html" class="text-black dark:text-white font-medium text-sm flex items-center justify-between mt-4 hover-underline">
-                                        <span>VER DETALHES</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </a> -->
                                 </div>
                             </div>
                             <!-- Projeto 4 -->
@@ -473,17 +458,13 @@
                                 </div>
                                 <div class="p-6">
                                     <h1 class="mb-2 text-xl text-black dark:text-white font-semibold">Cerberus Portfolio</h1>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" data-i18n="projects.desc4">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-orange-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">HTML</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-blue-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">CSS</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-purple-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">TAILWIND CSS</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-yellow-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">JAVASCRIPT</span>
                                     </div>
-                                    <!-- <a href="oficiofacil.html" class="text-black dark:text-white font-medium text-sm flex items-center justify-between mt-4 hover-underline">
-                                        <span>VER DETALHES</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </a> -->
                                 </div>
                             </div>
                             <!-- Projeto 5 -->
@@ -492,17 +473,13 @@
                                 </div>
                                 <div class="p-6">
                                     <h1 class="mb-2 text-xl text-black dark:text-white font-semibold">Clínica Canaã Mais</h1>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" data-i18n="projects.desc5">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
                                     <div class="flex flex-wrap gap-2">
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-orange-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">HTML</span>
                                         <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-blue-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">CSS</span>
-                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-purple-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">TAILWIND CSS</span>
-                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-yellow-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">JAVASCRIPT</span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-purple-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">TAILWIND CSS</span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-yellow-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">JAVASCRIPT</span>
                                     </div>
-                                    <!-- <a href="oficiofacil.html" class="text-black dark:text-white font-medium text-sm flex items-center justify-between mt-4 hover-underline">
-                                        <span>VER DETALHES</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </a> -->
                                 </div>
                             </div>
                             <!-- Projeto 6 -->
@@ -511,17 +488,13 @@
                                 </div>
                                 <div class="p-6">
                                     <h1 class="mb-2 text-xl text-black dark:text-white font-semibold">LinkaCanaã</h1>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4" data-i18n="projects.desc6">Aplicativo para gestão financeira com análises e relatórios personalizados.</p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-orange-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">HTML</span>
-                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-blue-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">CSS</span>
-                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-purple-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">TAILWIND CSS</span>
-                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-yellow-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">JAVASCRIPT</span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-orange-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">HTML</span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-blue-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">CSS</span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-purple-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">TAILWIND CSS</span>
+                                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 text-yellow-500 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:text-red-500 dark:hover:border-gray-300">JAVASCRIPT</span>
                                     </div>
-                                    <!-- <a href="oficiofacil.html" class="text-black dark:text-white font-medium text-sm flex items-center justify-between mt-4 hover-underline">
-                                        <span>VER DETALHES</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -531,9 +504,9 @@
                     <section id="experiencia" class="mb-16">
                         <h2 class="text-2xl font-bold mb-8 flex items-center hover-underline">
                             <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">2</span>
-                            EXPERIÊNCIA PROFISSIONAL
+                            <span data-i18n="experience.title">EXPERIÊNCIA PROFISSIONAL</span>
                         </h2>
-                        
+
                         <div class="space-y-8">
                             <!-- Experiência 2 -->
                             <div class="relative pl-12">
@@ -543,8 +516,8 @@
                                 <div class="pl-8 border-l-2 border-l-gray-200 dark:border-l-gray-700">
                                     <div class="rounded-md p-6 border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
                                         <h3 class="z-99 font-bold text-lg mb-1 hover-underline inline-block">Prefeitura de Canaã Dos Carajás</h3>
-                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm">Agente Administrativo • 2023 - PRESENTE</p>
-                                        <p class="text-gray-700 dark:text-gray-300 text-sm">Desenvolvimento Web, gestão de dados.</p>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm"><span data-i18n="experience.job2.role">Agente Administrativo</span> • <span data-i18n="experience.job2.period">2023 - PRESENTE</span></p>
+                                        <p class="text-gray-700 dark:text-gray-300 text-sm" data-i18n="experience.job2.description">Desenvolvimento Web, gestão de dados.</p>
                                         <div class="mt-3 flex flex-wrap gap-2">
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">PHP</span>
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Microsoft Access</span>
@@ -562,8 +535,8 @@
                                 <div class="pl-8 border-l-2 border-l-gray-200 dark:border-l-gray-700">
                                     <div class="rounded-md p-6 border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
                                         <h3 class="z-99 font-bold text-lg mb-1 hover-underline inline-block">Clínica de Psicologia Canaã Mais</h3>
-                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm">Agente Administrativo • 2022 - 2023</p>
-                                        <p class="text-gray-700 dark:text-gray-300 text-sm">Alimentação e gestão de agenda de pacientes, controle de pagamentos, emissão de notas fiscais.</p>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm"><span data-i18n="experience.job1.role">Agente Administrativo</span> • <span data-i18n="experience.job1.period">2022 - 2023</span></p>
+                                        <p class="text-gray-700 dark:text-gray-300 text-sm" data-i18n="experience.job1.description">Alimentação e gestão de agenda de pacientes, controle de pagamentos, emissão de notas fiscais.</p>
                                         <div class="mt-3 flex flex-wrap gap-2">
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Excel</span>
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Microsoft Access</span>
@@ -572,7 +545,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </section>
 
@@ -580,9 +553,9 @@
                     <section id="educacao" class="mb-16">
                         <h2 class="text-2xl font-bold mb-8 flex items-center hover-underline">
                             <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">3</span>
-                            FORMAÇÃO ACADÊMICA
+                            <span data-i18n="education.title">FORMAÇÃO ACADÊMICA</span>
                         </h2>
-                        
+
                         <div class="space-y-8">
                             <!-- Educação 1 -->
                             <div class="relative pl-12">
@@ -592,8 +565,8 @@
                                 <div class="pl-8 border-l-2 border-l-gray-200 dark:border-l-gray-700">
                                     <div class="rounded-md p-6 border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
                                         <h3 class="z-99 font-bold text-lg mb-1 hover-underline inline-block">Universidade Federal Rural Da Amazônia</h3>
-                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm">Bacharel em sistemas de informação • 2025 - PRESENTE</p>
-                                        <p class="text-gray-700 dark:text-gray-300 text-sm">Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.</p>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm"><span data-i18n="education.edu1.degree">Bacharel em sistemas de informação</span> • <span data-i18n="education.edu1.period">2025 - PRESENTE</span></p>
+                                        <p class="text-gray-700 dark:text-gray-300 text-sm" data-i18n="education.edu1.description">Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.</p>
                                         <div class="mt-3 flex flex-wrap gap-2">
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Python</span>
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Machine Learning</span>
@@ -610,8 +583,8 @@
                                 <div class="pl-8 border-l-2 border-l-gray-200 dark:border-l-gray-700">
                                     <div class="rounded-md p-6 border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
                                         <h3 class="z-99 font-bold text-lg mb-1 hover-underline inline-block">Alura</h3>
-                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm">Bacharel em sistemas de informação • 2025 - PRESENTE</p>
-                                        <p class="text-gray-700 dark:text-gray-300 text-sm">Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.</p>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm"><span data-i18n="education.edu2.degree">Bacharel em sistemas de informação</span> • <span data-i18n="education.edu2.period">2025 - PRESENTE</span></p>
+                                        <p class="text-gray-700 dark:text-gray-300 text-sm" data-i18n="education.edu2.description">Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.</p>
                                         <div class="mt-3 flex flex-wrap gap-2">
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Python</span>
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Machine Learning</span>
@@ -629,8 +602,8 @@
                                 <div class="pl-8 border-l-2 border-l-gray-200 dark:border-l-gray-700">
                                     <div class="rounded-md p-6 border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
                                         <h3 class="z-99 font-bold text-lg mb-1 hover-underline inline-block">Udemy</h3>
-                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm">Bacharel em sistemas de informação • 2025 - PRESENTE</p>
-                                        <p class="text-gray-700 dark:text-gray-300 text-sm">Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.</p>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm"><span data-i18n="education.edu3.degree">Bacharel em sistemas de informação</span> • <span data-i18n="education.edu3.period">2025 - PRESENTE</span></p>
+                                        <p class="text-gray-700 dark:text-gray-300 text-sm" data-i18n="education.edu3.description">Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.</p>
                                         <div class="mt-3 flex flex-wrap gap-2">
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Python</span>
                                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">Machine Learning</span>
@@ -639,7 +612,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </section>
 
@@ -647,14 +620,14 @@
                     <section id="habilidades" class="mb-16">
                         <h2 class="text-2xl font-bold mb-8 flex items-center hover-underline">
                             <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">4</span>
-                            HABILIDADES & COMPETÊNCIAS
+                            <span data-i18n="skills.title">HABILIDADES & COMPETÊNCIAS</span>
                         </h2>
-                        
+
                         <div class="space-y-8">
                             <div class="rounded-md p-6 border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
-                                <h3 class="z-99 font-semibold text-lg mb-6 hover-underline inline-block">TECNOLOGIAS PRINCIPAIS</h3>
+                                <h3 class="z-99 font-semibold text-lg mb-6 hover-underline inline-block" data-i18n="skills.mainTech">TECNOLOGIAS PRINCIPAIS</h3>
                                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                                    <div class= "border border-gray-200 rounded-md p-6 text-center skill-card hover-grow dark:bg-dark-card dark:border-gray-800">
+                                    <div class="border border-gray-200 rounded-md p-6 text-center skill-card hover-grow dark:bg-dark-card dark:border-gray-800">
                                         <div class="text-2xl mb-2 text-gray-700 dark:text-gray-300 skill-icon">
                                             <i class="fab fa-js"></i>
                                         </div>
@@ -663,18 +636,18 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="rounded-md p-6 border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
-                                <h3 class="z-99 font-semibold text-lg mb-4 hover-underline inline-block">IDIOMAS</h3>
+                                <h3 class="z-99 font-semibold text-lg mb-4 hover-underline inline-block" data-i18n="skills.languages">IDIOMAS</h3>
                                 <div class="flex flex-col md:flex-row gap-3">
                                     <div class="flex flex-wrap gap-3">
-                                        <div class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm border border-gray-200 hover-grow hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">PORTUGUÊS (NATIVO)</div>
+                                        <div class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm border border-gray-200 hover-grow hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300" data-i18n="skills.portuguese">PORTUGUÊS (NATIVO)</div>
                                     </div>
                                     <div class="flex flex-wrap gap-3">
-                                        <div class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm border border-gray-200 hover-grow hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">INGLÊS (AVANÇADO)</div>
+                                        <div class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm border border-gray-200 hover-grow hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300" data-i18n="skills.english">INGLÊS (AVANÇADO)</div>
                                     </div>
                                     <div class="flex flex-wrap gap-3">
-                                        <div class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm border border-gray-200 hover-grow hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300">ALEMÃO (BÁSICO)</div>
+                                        <div class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm border border-gray-200 hover-grow hover:bg-gray-700 hover:text-white hover:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-300 dark:hover:text-black dark:hover:border-gray-300" data-i18n="skills.german">ALEMÃO (BÁSICO)</div>
                                     </div>
                                 </div>
                             </div>
@@ -685,48 +658,42 @@
                     <section class="bg-white dark:bg-black md:h-screen">
                         <h2 class="text-2xl font-bold mb-8 flex items-center hover-underline">
                             <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">4</span>
-                            GALERIA
+                            <span data-i18n="gallery.title">GALERIA</span>
                         </h2>
                         <div class="grid grid-cols-2 md:grid-cols-3 md:grid-rows-4 gap-3 h-full">
-                                <!-- image 1 -->
-                                <div class="rounded-md overflow-hidden row-span-2 flex flex-col gap-2">
-                                    <img src="./assets/img/events/first.jpeg" alt="photo" class="object-cover object-right w-full h-full">
-                                </div>
-                                <!-- image 2 -->
-                                <div class="rounded-md overflow-hidden">
-                                    <img src="./assets/img/events/win.jpeg" alt="photo" class="object-cover object-top w-full h-full">
-                                </div>
-                                <!-- image 2 -->
-                                <div class="rounded-md overflow-hidden row-span-2">
-                                    <img src="./assets/img/events/call.jpeg" alt="photo" class="object-cover object-center w-full h-full">
-                                </div>
-                                <!-- image 2 -->
-                                <div class="rounded-md overflow-hidden row-span-2">
-                                    <img src="./assets/img/events/gabriel3.jpg" alt="photo" class="object-cover object-center w-full h-full">
-                                </div>
-                                <!-- image 2 -->
-                                <div class="rounded-md overflow-hidden">
-                                    <img src="./assets/img/events/gabriel.jpg" alt="photo" class="object-cover object-center w-full h-full">
-                                </div>
-                                <!-- image 2 -->
-                                <div class="rounded-md overflow-hidden">
-                                    <img src="./assets/img/events/ced3.jpeg" alt="photo" class="object-cover object-center w-full h-full">
-                                </div>
+                            <div class="rounded-md overflow-hidden row-span-2 flex flex-col gap-2">
+                                <img src="./assets/img/events/first.jpeg" alt="photo" class="object-cover object-right w-full h-full">
                             </div>
+                            <div class="rounded-md overflow-hidden">
+                                <img src="./assets/img/events/win.jpeg" alt="photo" class="object-cover object-top w-full h-full">
+                            </div>
+                            <div class="rounded-md overflow-hidden row-span-2">
+                                <img src="./assets/img/events/call.jpeg" alt="photo" class="object-cover object-center w-full h-full">
+                            </div>
+                            <div class="rounded-md overflow-hidden row-span-2">
+                                <img src="./assets/img/events/gabriel3.jpg" alt="photo" class="object-cover object-center w-full h-full">
+                            </div>
+                            <div class="rounded-md overflow-hidden">
+                                <img src="./assets/img/events/gabriel.jpg" alt="photo" class="object-cover object-center w-full h-full">
+                            </div>
+                            <div class="rounded-md overflow-hidden">
+                                <img src="./assets/img/events/ced3.jpeg" alt="photo" class="object-cover object-center w-full h-full">
+                            </div>
+                        </div>
                     </section>
 
                     <!-- Call to action -->
                     <section class="pt-24 pb-32 lg:pt-32 lg:pb-64 flex flex-col justify-center items-center gap-5">
-                        <h1 class="text-4xl font-bold text-gray-900 sm:text-6xl dark:text-white">Gostou do que viu?</h1>
-                        <p class="text-xl text-gray-600 dark:text-gray-300">Entre em contato comigo</p>
+                        <h1 class="text-4xl font-bold text-gray-900 sm:text-6xl dark:text-white" data-i18n="cta.title">Gostou do que viu?</h1>
+                        <p class="text-xl text-gray-600 dark:text-gray-300" data-i18n="cta.subtitle">Entre em contato comigo</p>
                         <div class="flex items-center gap-3">
                             <a href="#contato" class="hover-grow inline-block rounded-md border border-transparent bg-black dark:bg-white px-8 py-3 text-center font-medium text-white dark:text-black flex items-center gap-2">
                                 <i class="fas fa-arrow-right text-xs"></i>
-                                <span>Contato</span>
+                                <span data-i18n="cta.contact">Contato</span>
                             </a>
                             <a href="#" class="hover-grow inline-block rounded-md bg-white text-gray-800 px-8 py-3 text-center font-medium border border-gray-300 dark:bg-black dark:text-white dark:border dark:border-gray-800">
                                 <i class="fas fa-download"></i>
-                                <span>Baixar currículo</span>
+                                <span data-i18n="cta.downloadCV">Baixar currículo</span>
                             </a>
                         </div>
                     </section>
@@ -735,9 +702,9 @@
                     <section id="contato" class="mb-12">
                         <h2 class="text-2xl font-bold mb-8 flex items-center hover-underline">
                             <span class="bg-black dark:bg-white w-6 h-6 rounded-full flex items-center justify-center text-white dark:text-black mr-3 text-sm">5</span>
-                            ENTRE EM CONTATO
+                            <span data-i18n="contact.title">ENTRE EM CONTATO</span>
                         </h2>
-                        
+
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             <div class="space-y-4">
                                 <div class="flex items-center p-6 border border-gray-200 rounded-md contact-card dark:bg-dark-card dark:border-gray-800">
@@ -745,46 +712,46 @@
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div>
-                                        <h3 class="z-99 font-bold hover-underline inline-block">Email</h3>
+                                        <h3 class="z-99 font-bold hover-underline inline-block" data-i18n="contact.email">Email</h3>
                                         <p class="text-gray-600 dark:text-gray-400 text-sm">contato@joaodev.com</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="flex items-center p-6 border border-gray-200 rounded-md contact-card dark:bg-dark-card dark:border-gray-800">
                                     <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mr-6 text-lg text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                                         <i class="fas fa-phone-alt"></i>
                                     </div>
                                     <div>
-                                        <h3 class="z-99 font-bold hover-underline inline-block">Telefone</h3>
+                                        <h3 class="z-99 font-bold hover-underline inline-block" data-i18n="contact.phone">Telefone</h3>
                                         <p class="text-gray-600 dark:text-gray-400 text-sm">+55 11 98765-4321</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="flex items-center p-6 border border-gray-200 rounded-md contact-card dark:bg-dark-card dark:border-gray-800">
                                     <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mr-6 text-lg text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                                         <i class="fas fa-map-marker-alt"></i>
                                     </div>
                                     <div>
-                                        <h3 class="z-99 font-bold hover-underline inline-block">Localização</h3>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">São Paulo, Brasil</p>
+                                        <h3 class="z-99 font-bold hover-underline inline-block" data-i18n="contact.location">Localização</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="contact.locationValue">São Paulo, Brasil</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="flex items-center p-6 border border-gray-200 rounded-md contact-card dark:bg-dark-card dark:border-gray-800">
                                     <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mr-6 text-lg text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                                         <i class="fas fa-clock"></i>
                                     </div>
                                     <div>
-                                        <h3 class="z-99 font-bold hover-underline inline-block">Horário Comercial</h3>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">Seg - Sex, 9:00 - 18:00</p>
+                                        <h3 class="z-99 font-bold hover-underline inline-block" data-i18n="contact.hours">Horário Comercial</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="contact.hoursValue">Seg - Sex, 9:00 - 18:00</p>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="rounded-md p-6 border border-gray-200 hover-grow card-hover dark:bg-dark-card dark:border-gray-800">
-                                <h3 class="z-99 font-bold text-xl mb-6 hover-underline inline-block">REDES SOCIAIS</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mb-6">Conecte-se comigo através das redes sociais ou envie uma mensagem direta.</p>
-                                
+                                <h3 class="z-99 font-bold text-xl mb-6 hover-underline inline-block" data-i18n="contact.social">REDES SOCIAIS</h3>
+                                <p class="text-gray-600 dark:text-gray-400 mb-6" data-i18n="contact.socialText">Conecte-se comigo através das redes sociais ou envie uma mensagem direta.</p>
+
                                 <div class="flex flex-wrap gap-4">
                                     <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 social-hover">
                                         <i class="fab fa-github"></i>
@@ -805,12 +772,12 @@
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </div>
-                                
+
                                 <div class="mt-8">
-                                    <h4 class="font-semibold mb-4 hover-underline inline-block">OU ENVIE UM EMAIL DIRETO</h4>
+                                    <h4 class="font-semibold mb-4 hover-underline inline-block" data-i18n="contact.orSendEmail">OU ENVIE UM EMAIL DIRETO</h4>
                                     <a href="mailto:contato@joaodev.com" class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium text-center block hover-grow hover:bg-gray-800 dark:hover:bg-gray-200">
                                         <i class="fas fa-paper-plane mr-2"></i>
-                                        ENVIAR EMAIL
+                                        <span data-i18n="contact.sendEmail">ENVIAR EMAIL</span>
                                     </a>
                                 </div>
                             </div>
@@ -821,49 +788,384 @@
         </div>
     </div>
 
-    <!-- JavaScript para destacar o item do sidebar conforme a seção visível -->
+    <!-- JavaScript para sidebar ativo -->
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const menuLinks = document.querySelectorAll('.sidebar-item');
-    const sectionsIds = ['sobre', 'projetos', 'experiencia', 'educacao', 'habilidades', 'contato'];
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.sidebar-item');
+            const sectionsIds = ['sobre', 'projetos', 'experiencia', 'educacao', 'habilidades', 'contato'];
 
-    function setActiveLink(sectionId) {
-        menuLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === `#${sectionId}`) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
+            function setActiveLink(sectionId) {
+                menuLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${sectionId}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
             }
-        });
-    }
 
-    function getCurrentSection() {
-        let current = 'sobre';
-        let minDistance = Infinity;
-        sectionsIds.forEach(id => {
-            const section = document.getElementById(id);
-            if (section) {
-                const rect = section.getBoundingClientRect();
-                const distance = Math.abs(rect.top);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    current = id;
+            function getCurrentSection() {
+                let current = 'sobre';
+                let minDistance = Infinity;
+                sectionsIds.forEach(id => {
+                    const section = document.getElementById(id);
+                    if (section) {
+                        const rect = section.getBoundingClientRect();
+                        const distance = Math.abs(rect.top);
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            current = id;
+                        }
+                    }
+                });
+                return current;
+            }
+
+            function handleScroll() {
+                const activeSection = getCurrentSection();
+                setActiveLink(activeSection);
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+        });
+    </script>
+
+    <!-- Script de Internacionalização (i18n) -->
+    <script>
+        (function() {
+            const translations = {
+                pt: {
+                    // Sidebar
+                    'sidebar.name': 'Gabriel Dev',
+                    'sidebar.about': 'Sobre Mim',
+                    'sidebar.projects': 'Projetos',
+                    'sidebar.experience': 'Experiência',
+                    'sidebar.education': 'Educação',
+                    'sidebar.awards': 'Prêmiações',
+                    'sidebar.contact': 'Contato',
+                    'sidebar.copyright': '© 2023 JOÃO DEV. TODOS OS DIREITOS RESERVADOS.',
+
+                    // Header
+                    'header.name': 'GABRIEL BAUMANN',
+                    'header.role': 'DESENVOLVEDOR WEB',
+                    'header.contact': 'Contato',
+
+                    // About
+                    'about.title': 'SOBRE MIM',
+                    'about.name': 'Gabriel Baumann',
+                    'about.role': 'Desenvolvedor Web',
+                    'about.description': 'Possuo experiência com ferramentas para desenvolvimento web como PHP, Tailwind CSS, Laravel, MySQL, Git e GitHub. Bem como tenho conhecimento em análise, gestão e tratamento de dados, Microsoft Access, Excel e Power BI.',
+                    'about.downloadCV': 'DOWNLOAD CV',
+                    'about.viewProjects': 'VER PROJETOS',
+                    'about.stats.projects': 'PROJETOS',
+                    'about.stats.clients': 'Clientes',
+                    'about.stats.experienceYears': '+2 Anos',
+                    'about.stats.experience': 'EXPERIÊNCIA',
+                    'about.stats.awards': 'PRÊMIOS',
+
+                    // Stack
+                    'stack.title': 'Tecnologias que trabalho',
+
+                    // Projects
+                    'projects.title': 'CONHEÇA MEUS PROJETOS',
+                    'projects.desc1': 'Aplicativo para gestão financeira com análises e relatórios personalizados.',
+                    'projects.desc2': 'Aplicativo para gestão financeira com análises e relatórios personalizados.',
+                    'projects.desc3': 'Aplicativo para gestão financeira com análises e relatórios personalizados.',
+                    'projects.desc4': 'Aplicativo para gestão financeira com análises e relatórios personalizados.',
+                    'projects.desc5': 'Aplicativo para gestão financeira com análises e relatórios personalizados.',
+                    'projects.desc6': 'Aplicativo para gestão financeira com análises e relatórios personalizados.',
+                    'projects.viewDetails': 'VER DETALHES',
+
+                    // Experience
+                    'experience.title': 'EXPERIÊNCIA PROFISSIONAL',
+                    'experience.job1.role': 'Agente Administrativo',
+                    'experience.job1.period': '2022 - 2023',
+                    'experience.job1.description': 'Alimentação e gestão de agenda de pacientes, controle de pagamentos, emissão de notas fiscais.',
+                    'experience.job2.role': 'Agente Administrativo',
+                    'experience.job2.period': '2023 - PRESENTE',
+                    'experience.job2.description': 'Desenvolvimento Web, gestão de dados.',
+
+                    // Education
+                    'education.title': 'FORMAÇÃO ACADÊMICA',
+                    'education.edu1.degree': 'Bacharel em sistemas de informação',
+                    'education.edu1.period': '2025 - PRESENTE',
+                    'education.edu1.description': 'Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.',
+                    'education.edu2.degree': 'Bacharel em sistemas de informação',
+                    'education.edu2.period': '2025 - PRESENTE',
+                    'education.edu2.description': 'Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.',
+                    'education.edu3.degree': 'Bacharel em sistemas de informação',
+                    'education.edu3.period': '2025 - PRESENTE',
+                    'education.edu3.description': 'Formação com ênfase em desenvolvimento de software e inteligência artificial. Participação em projetos de pesquisa e desenvolvimento de sistemas inovadores.',
+
+                    // Skills
+                    'skills.title': 'HABILIDADES & COMPETÊNCIAS',
+                    'skills.mainTech': 'TECNOLOGIAS PRINCIPAIS',
+                    'skills.languages': 'IDIOMAS',
+                    'skills.portuguese': 'PORTUGUÊS (NATIVO)',
+                    'skills.english': 'INGLÊS (AVANÇADO)',
+                    'skills.german': 'ALEMÃO (BÁSICO)',
+
+                    // Gallery
+                    'gallery.title': 'GALERIA',
+
+                    // CTA
+                    'cta.title': 'Gostou do que viu?',
+                    'cta.subtitle': 'Entre em contato comigo',
+                    'cta.contact': 'Contato',
+                    'cta.downloadCV': 'Baixar currículo',
+
+                    // Contact
+                    'contact.title': 'ENTRE EM CONTATO',
+                    'contact.email': 'Email',
+                    'contact.phone': 'Telefone',
+                    'contact.location': 'Localização',
+                    'contact.locationValue': 'São Paulo, Brasil',
+                    'contact.hours': 'Horário Comercial',
+                    'contact.hoursValue': 'Seg - Sex, 9:00 - 18:00',
+                    'contact.social': 'REDES SOCIAIS',
+                    'contact.socialText': 'Conecte-se comigo através das redes sociais ou envie uma mensagem direta.',
+                    'contact.orSendEmail': 'OU ENVIE UM EMAIL DIRETO',
+                    'contact.sendEmail': 'ENVIAR EMAIL'
+                },
+                en: {
+                    // Sidebar
+                    'sidebar.name': 'Gabriel Dev',
+                    'sidebar.about': 'About Me',
+                    'sidebar.projects': 'Projects',
+                    'sidebar.experience': 'Experience',
+                    'sidebar.education': 'Education',
+                    'sidebar.awards': 'Awards',
+                    'sidebar.contact': 'Contact',
+                    'sidebar.copyright': '© 2023 JOÃO DEV. ALL RIGHTS RESERVED.',
+
+                    // Header
+                    'header.name': 'GABRIEL BAUMANN',
+                    'header.role': 'WEB DEVELOPER',
+                    'header.contact': 'Contact',
+
+                    // About
+                    'about.title': 'ABOUT ME',
+                    'about.name': 'Gabriel Baumann',
+                    'about.role': 'Web Developer',
+                    'about.description': 'I have experience with web development tools such as PHP, Tailwind CSS, Laravel, MySQL, Git and GitHub. I also have knowledge in data analysis, management and processing, Microsoft Access, Excel and Power BI.',
+                    'about.downloadCV': 'DOWNLOAD CV',
+                    'about.viewProjects': 'VIEW PROJECTS',
+                    'about.stats.projects': 'PROJECTS',
+                    'about.stats.clients': 'Clients',
+                    'about.stats.experienceYears': '+2 Years',
+                    'about.stats.experience': 'EXPERIENCE',
+                    'about.stats.awards': 'AWARDS',
+
+                    // Stack
+                    'stack.title': 'Technologies I work with',
+
+                    // Projects
+                    'projects.title': 'CHECK OUT MY PROJECTS',
+                    'projects.desc1': 'Financial management application with custom analysis and reports.',
+                    'projects.desc2': 'Financial management application with custom analysis and reports.',
+                    'projects.desc3': 'Financial management application with custom analysis and reports.',
+                    'projects.desc4': 'Financial management application with custom analysis and reports.',
+                    'projects.desc5': 'Financial management application with custom analysis and reports.',
+                    'projects.desc6': 'Financial management application with custom analysis and reports.',
+                    'projects.viewDetails': 'VIEW DETAILS',
+
+                    // Experience
+                    'experience.title': 'PROFESSIONAL EXPERIENCE',
+                    'experience.job1.role': 'Administrative Agent',
+                    'experience.job1.period': '2022 - 2023',
+                    'experience.job1.description': 'Patient schedule management, payment control, invoice issuance.',
+                    'experience.job2.role': 'Administrative Agent',
+                    'experience.job2.period': '2023 - PRESENT',
+                    'experience.job2.description': 'Web Development, data management.',
+
+                    // Education
+                    'education.title': 'ACADEMIC BACKGROUND',
+                    'education.edu1.degree': 'Bachelor in Information Systems',
+                    'education.edu1.period': '2025 - PRESENT',
+                    'education.edu1.description': 'Degree with emphasis on software development and artificial intelligence. Participation in research projects and development of innovative systems.',
+                    'education.edu2.degree': 'Bachelor in Information Systems',
+                    'education.edu2.period': '2025 - PRESENT',
+                    'education.edu2.description': 'Degree with emphasis on software development and artificial intelligence. Participation in research projects and development of innovative systems.',
+                    'education.edu3.degree': 'Bachelor in Information Systems',
+                    'education.edu3.period': '2025 - PRESENT',
+                    'education.edu3.description': 'Degree with emphasis on software development and artificial intelligence. Participation in research projects and development of innovative systems.',
+
+                    // Skills
+                    'skills.title': 'SKILLS & COMPETENCIES',
+                    'skills.mainTech': 'MAIN TECHNOLOGIES',
+                    'skills.languages': 'LANGUAGES',
+                    'skills.portuguese': 'PORTUGUESE (NATIVE)',
+                    'skills.english': 'ENGLISH (ADVANCED)',
+                    'skills.german': 'GERMAN (BASIC)',
+
+                    // Gallery
+                    'gallery.title': 'GALLERY',
+
+                    // CTA
+                    'cta.title': 'Liked what you saw?',
+                    'cta.subtitle': 'Get in touch with me',
+                    'cta.contact': 'Contact',
+                    'cta.downloadCV': 'Download CV',
+
+                    // Contact
+                    'contact.title': 'GET IN TOUCH',
+                    'contact.email': 'Email',
+                    'contact.phone': 'Phone',
+                    'contact.location': 'Location',
+                    'contact.locationValue': 'São Paulo, Brazil',
+                    'contact.hours': 'Business Hours',
+                    'contact.hoursValue': 'Mon - Fri, 9:00 AM - 6:00 PM',
+                    'contact.social': 'SOCIAL MEDIA',
+                    'contact.socialText': 'Connect with me via social media or send a direct message.',
+                    'contact.orSendEmail': 'OR SEND A DIRECT EMAIL',
+                    'contact.sendEmail': 'SEND EMAIL'
+                },
+                de: {
+                    // Sidebar
+                    'sidebar.name': 'Gabriel Dev',
+                    'sidebar.about': 'Über mich',
+                    'sidebar.projects': 'Projekte',
+                    'sidebar.experience': 'Erfahrung',
+                    'sidebar.education': 'Bildung',
+                    'sidebar.awards': 'Auszeichnungen',
+                    'sidebar.contact': 'Kontakt',
+                    'sidebar.copyright': '© 2023 JOÃO DEV. ALLE RECHTE VORBEHALTEN.',
+
+                    // Header
+                    'header.name': 'GABRIEL BAUMANN',
+                    'header.role': 'WEBENTWICKLER',
+                    'header.contact': 'Kontakt',
+
+                    // About
+                    'about.title': 'ÜBER MICH',
+                    'about.name': 'Gabriel Baumann',
+                    'about.role': 'Webentwickler',
+                    'about.description': 'Ich habe Erfahrung mit Webentwicklungstools wie PHP, Tailwind CSS, Laravel, MySQL, Git und GitHub. Außerdem habe ich Kenntnisse in Datenanalyse, -verwaltung und -verarbeitung, Microsoft Access, Excel und Power BI.',
+                    'about.downloadCV': 'CV HERUNTERLADEN',
+                    'about.viewProjects': 'PROJEKTE ANSEHEN',
+                    'about.stats.projects': 'PROJEKTE',
+                    'about.stats.clients': 'Kunden',
+                    'about.stats.experienceYears': '+2 Jahre',
+                    'about.stats.experience': 'ERFAHRUNG',
+                    'about.stats.awards': 'AUSZEICHNUNGEN',
+
+                    // Stack
+                    'stack.title': 'Technologien, mit denen ich arbeite',
+
+                    // Projects
+                    'projects.title': 'MEINE PROJEKTE',
+                    'projects.desc1': 'App zur Finanzverwaltung mit benutzerdefinierten Analysen und Berichten.',
+                    'projects.desc2': 'App zur Finanzverwaltung mit benutzerdefinierten Analysen und Berichten.',
+                    'projects.desc3': 'App zur Finanzverwaltung mit benutzerdefinierten Analysen und Berichten.',
+                    'projects.desc4': 'App zur Finanzverwaltung mit benutzerdefinierten Analysen und Berichten.',
+                    'projects.desc5': 'App zur Finanzverwaltung mit benutzerdefinierten Analysen und Berichten.',
+                    'projects.desc6': 'App zur Finanzverwaltung mit benutzerdefinierten Analysen und Berichten.',
+                    'projects.viewDetails': 'DETAILS ANSEHEN',
+
+                    // Experience
+                    'experience.title': 'BERUFSERFAHRUNG',
+                    'experience.job1.role': 'Verwaltungsangestellter',
+                    'experience.job1.period': '2022 - 2023',
+                    'experience.job1.description': 'Patiententerminverwaltung, Zahlungskontrolle, Rechnungsstellung.',
+                    'experience.job2.role': 'Verwaltungsangestellter',
+                    'experience.job2.period': '2023 - HEUTE',
+                    'experience.job2.description': 'Webentwicklung, Datenmanagement.',
+
+                    // Education
+                    'education.title': 'AKADEMISCHE AUSBILDUNG',
+                    'education.edu1.degree': 'Bachelor in Informationssystemen',
+                    'education.edu1.period': '2025 - HEUTE',
+                    'education.edu1.description': 'Studium mit Schwerpunkt auf Softwareentwicklung und künstlicher Intelligenz. Teilnahme an Forschungsprojekten und Entwicklung innovativer Systeme.',
+                    'education.edu2.degree': 'Bachelor in Informationssystemen',
+                    'education.edu2.period': '2025 - HEUTE',
+                    'education.edu2.description': 'Studium mit Schwerpunkt auf Softwareentwicklung und künstlicher Intelligenz. Teilnahme an Forschungsprojekten und Entwicklung innovativer Systeme.',
+                    'education.edu3.degree': 'Bachelor in Informationssystemen',
+                    'education.edu3.period': '2025 - HEUTE',
+                    'education.edu3.description': 'Studium mit Schwerpunkt auf Softwareentwicklung und künstlicher Intelligenz. Teilnahme an Forschungsprojekten und Entwicklung innovativer Systeme.',
+
+                    // Skills
+                    'skills.title': 'FÄHIGKEITEN & KOMPETENZEN',
+                    'skills.mainTech': 'HAUPTTECHNOLOGIEN',
+                    'skills.languages': 'SPRACHEN',
+                    'skills.portuguese': 'PORTUGIESISCH (MUTTERSPRACHE)',
+                    'skills.english': 'ENGLISCH (FORTGESCHRITTEN)',
+                    'skills.german': 'DEUTSCH (GRUNDKENNTNISSE)',
+
+                    // Gallery
+                    'gallery.title': 'GALERIE',
+
+                    // CTA
+                    'cta.title': 'Hat Ihnen gefallen, was Sie gesehen haben?',
+                    'cta.subtitle': 'Kontaktieren Sie mich',
+                    'cta.contact': 'Kontakt',
+                    'cta.downloadCV': 'CV herunterladen',
+
+                    // Contact
+                    'contact.title': 'KONTAKT AUFNEHMEN',
+                    'contact.email': 'E-Mail',
+                    'contact.phone': 'Telefon',
+                    'contact.location': 'Standort',
+                    'contact.locationValue': 'São Paulo, Brasilien',
+                    'contact.hours': 'Geschäftszeiten',
+                    'contact.hoursValue': 'Mo - Fr, 9:00 - 18:00 Uhr',
+                    'contact.social': 'SOZIALE MEDIEN',
+                    'contact.socialText': 'Verbinden Sie sich mit mir über soziale Medien oder senden Sie eine direkte Nachricht.',
+                    'contact.orSendEmail': 'ODER SENDEN SIE EINE DIREKTE E-MAIL',
+                    'contact.sendEmail': 'E-MAIL SENDEN'
                 }
+            };
+
+            function switchLanguage(lang) {
+                // Atualizar todos os elementos com data-i18n
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+
+                // Atualizar os botões de idioma (estilo ativo)
+                const langBtns = document.querySelectorAll('.lang-btn');
+                langBtns.forEach(btn => {
+                    const btnLang = btn.getAttribute('data-lang');
+                    if (btnLang === lang) {
+                        btn.classList.add('active-lang');
+                        btn.classList.add('bg-primary-light', 'dark:bg-primary-dark', 'text-white', 'dark:text-black', 'font-semibold');
+                        btn.classList.remove('text-gray-600', 'dark:text-gray-400');
+                    } else {
+                        btn.classList.remove('active-lang');
+                        btn.classList.remove('bg-primary-light', 'dark:bg-primary-dark', 'text-white', 'dark:text-black', 'font-semibold');
+                        btn.classList.add('text-gray-600', 'dark:text-gray-400');
+                    }
+                });
+
+                // Atualizar o atributo lang do HTML
+                document.documentElement.lang = lang === 'pt' ? 'pt-BR' : (lang === 'en' ? 'en-US' : 'de-DE');
+
+                // Salvar preferência no localStorage
+                localStorage.setItem('preferredLanguage', lang);
             }
-        });
-        return current;
-    }
 
-    function handleScroll() {
-        const activeSection = getCurrentSection();
-        setActiveLink(activeSection);
-    }
+            // Inicializar com o idioma salvo ou português como padrão
+            const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
+            switchLanguage(savedLang);
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-});
-</script>
+            // Adicionar event listeners aos botões de idioma
+            const langBtns = document.querySelectorAll('.lang-btn');
+            langBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    if (lang) {
+                        switchLanguage(lang);
+                    }
+                });
+            });
+        })();
+    </script>
+
     <script src="./script.js"></script>
 </body>
 </html>
